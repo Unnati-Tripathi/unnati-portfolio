@@ -1,511 +1,152 @@
-// import React from 'react';
-// import { motion } from 'framer-motion';
-// import { Github, ExternalLink, Terminal, User, HeartPulse, Droplets } from 'lucide-react';
-
-// const projectList = [
-//   {
-//     title: "Codify (Code Editor)",
-//     desc: "Full-stack code execution platform with JWT and Monaco Editor integration.",
-//     tech: ["MERN", "Docker", "JWT"],
-//     icon: <Terminal />,
-//     color: "blue"
-//   },
-//   {
-//     title: "Student Welfare Portal",
-//     desc: "Management system featuring OCR verification and ML placement insights.",
-//     tech: ["React", "Node.js", "ML"],
-//     icon: <User />,
-//     color: "green"
-//   },
-//   {
-//     title: "Heart Disease Detection",
-//     desc: "ML classification model with 90% accuracy using Scikit-learn.",
-//     tech: ["Python", "Pandas", "Sklearn"],
-//     icon: <HeartPulse />,
-//     color: "red"
-//   },
-//   {
-//     title: "Blood Donation System",
-//     desc: "C++ console application applying core OOP principles for inventory tracking.",
-//     tech: ["C++", "OOP"],
-//     icon: <Droplets />,
-//     color: "purple"
-//   }
-// ];
-
-// const Projects = () => {
-//   return (
-//     <section id="projects" className="mb-40">
-//       <motion.h3 
-//         initial={{ opacity: 0, y: 20 }}
-//         whileInView={{ opacity: 1, y: 0 }}
-//         className="text-4xl font-black text-white uppercase tracking-tighter mb-16"
-//       >
-//         Selected_Works
-//       </motion.h3>
-
-//       <div className="grid md:grid-cols-2 gap-10">
-//         {projectList.map((project, index) => (
-//           <motion.div 
-//             key={project.title}
-//             initial={{ opacity: 0, y: 30 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             transition={{ delay: index * 0.1 }}
-//             className={`group bg-[#0d1117] border border-gray-800 p-8 rounded-3xl hover:bg-${project.color}-600/5 transition-all`}
-//           >
-//             <div className="flex justify-between items-start mb-10">
-//               <div className={`p-4 bg-${project.color}-600 rounded-2xl text-white`}>{project.icon}</div>
-//               <div className="flex gap-4">
-//                 <Github size={20} className="text-gray-500 hover:text-white cursor-pointer" />
-//                 <ExternalLink size={20} className="text-gray-500 hover:text-white cursor-pointer" />
-//               </div>
-//             </div>
-//             <h4 className="text-2xl font-bold text-white mb-2">{project.title}</h4>
-//             <p className="text-gray-400 text-sm mb-6 leading-relaxed">{project.desc}</p>
-//             <div className="flex flex-wrap gap-2 uppercase text-[10px] font-bold">
-//               {project.tech.map(t => (
-//                 <span key={t} className={`text-${project.color}-500`}>#{t}</span>
-//               ))}
-//             </div>
-//           </motion.div>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Projects;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useRef } from 'react';
-// import { motion } from 'framer-motion';
-// import { 
-//   Github, ExternalLink, Terminal, User, 
-//   HeartPulse, Droplets, ChevronLeft, ChevronRight 
-// } from 'lucide-react';
-
-// const projectList = [
-//   {
-//     title: "Codify (Code Editor)",
-//     desc: "Full-stack code execution platform with JWT and Monaco Editor integration.",
-//     tech: ["MERN", "Docker", "JWT"],
-//     icon: <Terminal />,
-//     color: "blue"
-//   },
-//   {
-//     title: "Student Welfare Portal",
-//     desc: "Management system featuring OCR verification and ML placement insights.",
-//     tech: ["React", "Node.js", "ML"],
-//     icon: <User />,
-//     color: "green"
-//   },
-//   {
-//     title: "Heart Disease Detection",
-//     desc: "ML classification model with 90% accuracy using Scikit-learn.",
-//     tech: ["Python", "Pandas", "Sklearn"],
-//     icon: <HeartPulse />,
-//     color: "red"
-//   },
-//   {
-//     title: "Blood Donation System",
-//     desc: "C++ console application applying core OOP principles for inventory tracking.",
-//     tech: ["C++", "OOP"],
-//     icon: <Droplets />,
-//     color: "purple"
-//   }
-// ];
-
-// const Projects = () => {
-//   const scrollRef = useRef(null);
-
-//   const scroll = (direction) => {
-//     const { current } = scrollRef;
-//     if (current) {
-//       const scrollAmount = direction === 'left' ? -400 : 400;
-//       current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-//     }
-//   };
-
-//   return (
-//     <section id="projects" className="mb-40 relative">
-//       <div className="flex justify-between items-end mb-12">
-//         <motion.h3 
-//           initial={{ opacity: 0, x: -20 }}
-//           whileInView={{ opacity: 1, x: 0 }}
-//           viewport={{ once: true }}
-//           className="text-4xl font-black text-white uppercase tracking-tighter"
-//         >
-//           Selected_Works
-//         </motion.h3>
-
-//         {/* Navigation Arrows */}
-//         <div className="flex gap-4 mb-2">
-//           <button 
-//             onClick={() => scroll('left')}
-//             className="p-3 bg-gray-900 border border-gray-800 rounded-full hover:bg-blue-600 hover:text-white transition-all text-gray-400 shadow-lg active:scale-95"
-//           >
-//             <ChevronLeft size={24} />
-//           </button>
-//           <button 
-//             onClick={() => scroll('right')}
-//             className="p-3 bg-gray-900 border border-gray-800 rounded-full hover:bg-blue-600 hover:text-white transition-all text-gray-400 shadow-lg active:scale-95"
-//           >
-//             <ChevronRight size={24} />
-//           </button>
-//         </div>
-//       </div>
-
-//       {/* Horizontal Slider Container */}
-//       <div 
-//         ref={scrollRef}
-//         className="flex gap-6 overflow-x-auto pb-10 scroll-smooth snap-x snap-mandatory scrollbar-hide"
-//         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-//       >
-//         {projectList.map((project, index) => (
-//           <motion.div 
-//             key={project.title}
-//             initial={{ opacity: 0, y: 30 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             transition={{ delay: index * 0.1 }}
-//             className={`min-w-[320px] md:min-w-[500px] snap-center bg-[#0d1117] border border-gray-800 p-8 rounded-3xl hover:border-${project.color}-500/50 transition-all shadow-xl flex flex-col`}
-//           >
-//             <div className="flex justify-between items-start mb-10">
-//               <div className={`p-4 bg-${project.color}-600/20 text-${project.color}-500 rounded-2xl`}>
-//                 {project.icon}
-//               </div>
-//               <div className="flex gap-4">
-//                 <Github size={20} className="text-gray-500 hover:text-white transition cursor-pointer" />
-//                 <ExternalLink size={20} className="text-gray-500 hover:text-white transition cursor-pointer" />
-//               </div>
-//             </div>
-
-//             <h4 className="text-2xl font-bold text-white mb-2">{project.title}</h4>
-//             <p className="text-gray-400 text-sm mb-8 leading-relaxed flex-grow">
-//               {project.desc}
-//             </p>
-
-//             <div className="flex flex-wrap gap-2 mt-auto">
-//               {project.tech.map(t => (
-//                 <span key={t} className={`text-[10px] font-black uppercase tracking-widest text-${project.color}-500 bg-${project.color}-500/5 px-2 py-1 rounded`}>
-//                   #{t}
-//                 </span>
-//               ))}
-//             </div>
-//           </motion.div>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Projects;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import React, { useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import {
-  Github,
-  ExternalLink,
-  Terminal,
-  User,
-  HeartPulse,
-  Droplets,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { Github, ExternalLink, Code2, ShoppingBag, Terminal, CheckSquare, Building2, Utensils } from "lucide-react";
 
-/* ---------------- COLOR MAP (Tailwind Safe) ---------------- */
-const colorMap = {
-  blue: {
-    border: "hover:border-blue-500/50",
-    iconBg: "bg-blue-600/20",
-    iconText: "text-blue-500",
-    tagText: "text-blue-500",
-    tagBg: "bg-blue-500/5",
-  },
-  green: {
-    border: "hover:border-green-500/50",
-    iconBg: "bg-green-600/20",
-    iconText: "text-green-500",
-    tagText: "text-green-500",
-    tagBg: "bg-green-500/5",
-  },
-  red: {
-    border: "hover:border-red-500/50",
-    iconBg: "bg-red-600/20",
-    iconText: "text-red-500",
-    tagText: "text-red-500",
-    tagBg: "bg-red-500/5",
-  },
-  purple: {
-    border: "hover:border-purple-500/50",
-    iconBg: "bg-purple-600/20",
-    iconText: "text-purple-500",
-    tagText: "text-purple-500",
-    tagBg: "bg-purple-500/5",
-  },
-};
-
-/* ---------------- PROJECT DATA ---------------- */
 const projectList = [
   {
+    title: "InstantMart",
+    subtitle: "Scalable E-Commerce Platform",
+    desc: "Full-stack MERN e-commerce application featuring JWT-based Role-Based Access Control (RBAC), full inventory CRUD Admin Dashboard, and a real-time shopping cart with dynamic discount code validation.",
+    tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "JWT RBAC"],
+    icon: <ShoppingBag className="text-purple-400" size={24} />,
+    github: "https://github.com/Unnati-Tripathi",
+    live: null,
+    featured: true,
+  },
+  {
+    title: "Codify",
+    subtitle: "Full-Stack Online IDE",
+    desc: "Cloud-based code execution environment securing 15 RESTful APIs with JWT authentication. Integrated Monaco Editor and a responsive React frontend for real-time code rendering and remote execution.",
+    tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Monaco Editor", "JWT"],
+    icon: <Terminal className="text-cyan-400" size={24} />,
+    github: "https://github.com/Unnati-Tripathi",
+    live: null,
+    featured: true,
+  },
+  {
+    title: "TaskFlow",
+    subtitle: "React Productivity Tracker",
+    desc: "Modern React task management app built with sleek glassmorphism UI, inline editing, live statistics dashboard (Total, Completed, Pending), custom CSS micro-animations, and keyboard shortcuts.",
+    tech: ["React.js", "Vite", "JavaScript (ES6+)", "Glassmorphism UI", "CSS Animations"],
+    icon: <CheckSquare className="text-emerald-400" size={24} />,
+    github: "https://github.com/Unnati-Tripathi/todo",
+    live: null,
+    featured: false,
+  },
+  {
+    title: "College Management System",
+    subtitle: "FastAPI Backend Architecture",
+    desc: "High-performance backend API built with Python & FastAPI featuring modular routers, PyDantic schemas, JWT authentication, paginated database queries, and custom exception handling middlewares.",
+    tech: ["Python", "FastAPI", "PostgreSQL", "PyDantic", "JWT Auth", "Middlewares"],
+    icon: <Building2 className="text-indigo-400" size={24} />,
+    github: "https://github.com/Unnati-Tripathi",
+    live: null,
+    featured: false,
+  },
+  {
     title: "PantryChef",
-    desc:
-      "Recipe recommendation web app that suggests dishes based on available ingredients, reducing food waste.",
-    tech: ["React", "API", "Tailwind"],
-    icon: <Terminal />,
-    color: "blue",
+    subtitle: "Smart Recipe Recommendation App",
+    desc: "Intuitive web application suggesting recipes based on user's available pantry ingredients to reduce food waste, featuring real-time API searching and dynamic filtering.",
+    tech: ["React.js", "REST API", "Tailwind CSS", "JavaScript"],
+    icon: <Utensils className="text-amber-400" size={24} />,
     github: "https://github.com/Unnati-Tripathi/pantryChef",
     live: "https://soft-nasturtium-971b16.netlify.app/",
-  },
-  {
-    title: "Codify (Code Editor)",
-    desc:
-      "Full-stack online code editor with secure authentication and code execution support.",
-    tech: ["MERN", "JWT"],
-    icon: <User />,
-    color: "green",
-    github: "https://github.com/Unnati-Tripathi/pantryChef",
-  },
-  {
-    title: "Heart Disease Prediction",
-    desc:
-      "Machine learning model that predicts heart disease using medical parameters with high accuracy.",
-    tech: ["Python", "Pandas", "Sklearn"],
-    icon: <HeartPulse />,
-    color: "red",
-    github: "https://github.com/Unnati-Tripathi/HeartDesease_Prediction",
-    live:
-      "https://github.com/Unnati-Tripathi/HeartDesease_Prediction/blob/main/ProjectHeart.ipynb",
-  },
-  {
-    title: "Blood Donation System",
-    desc:
-      "C++ based system for managing donors and blood inventory using OOP concepts.",
-    tech: ["C++", "OOP"],
-    icon: <Droplets />,
-    color: "purple",
-    github:
-      "https://github.com/Unnati-Tripathi/Blood-Donation-Management-System",
+    featured: false,
   },
 ];
 
-/* ---------------- COMPONENT ---------------- */
 const Projects = () => {
-  const scrollRef = useRef(null);
-
-  const scroll = (direction) => {
-    if (!scrollRef.current) return;
-    scrollRef.current.scrollBy({
-      left: direction === "left" ? -400 : 400,
-      behavior: "smooth",
-    });
-  };
-
   return (
-    <section id="projects" className="mb-40 relative">
-      {/* Header */}
-      <div className="flex justify-between items-end mb-12">
-        <motion.h3
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="text-4xl font-black text-white uppercase tracking-tighter"
-        >
-          Selected_Works
-        </motion.h3>
-
-        {/* Arrows */}
-        <div className="flex gap-4 mb-2">
-          <button
-            onClick={() => scroll("left")}
-            className="p-3 bg-gray-900 border border-gray-800 rounded-full hover:bg-blue-600 hover:text-white transition-all text-gray-400 shadow-lg active:scale-95"
-          >
-            <ChevronLeft size={24} />
-          </button>
-          <button
-            onClick={() => scroll("right")}
-            className="p-3 bg-gray-900 border border-gray-800 rounded-full hover:bg-blue-600 hover:text-white transition-all text-gray-400 shadow-lg active:scale-95"
-          >
-            <ChevronRight size={24} />
-          </button>
+    <section id="projects" className="py-20 md:py-28 relative">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        
+        {/* Section Header */}
+        <div className="flex flex-col items-center text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-widest mb-3">
+            <Code2 size={14} /> Portfolio & Code
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            Featured <span className="text-gradient">Projects</span>
+          </h2>
+          <p className="text-gray-400 text-sm sm:text-base max-w-xl mt-3">
+            Production-ready web applications, backend APIs, and developer tools engineered for performance.
+          </p>
         </div>
-      </div>
 
-      {/* Slider */}
-      <div
-        ref={scrollRef}
-        className="flex gap-6 overflow-x-auto pb-10 scroll-smooth snap-x snap-mandatory scrollbar-hide"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-      >
-        {projectList.map((project, index) => {
-          const colors = colorMap[project.color];
-
-          return (
+        {/* Project Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projectList.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className={`min-w-[320px] md:min-w-[500px] snap-center bg-[#0d1117] 
-              border border-gray-800 ${colors.border} p-8 rounded-3xl 
-              transition-all shadow-xl flex flex-col`}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className={`glass-card glass-card-hover p-7 rounded-3xl flex flex-col justify-between relative group ${
+                project.featured ? "md:col-span-1 lg:col-span-1 border-purple-500/30" : ""
+              }`}
             >
-              {/* Top */}
-              <div className="flex justify-between items-start mb-10">
-                <div
-                  className={`p-4 ${colors.iconBg} ${colors.iconText} rounded-2xl`}
-                >
-                  {project.icon}
+              <div>
+                {/* Header: Icon & Links */}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 group-hover:scale-110 transition-transform">
+                    {project.icon}
+                  </div>
+                  <div className="flex items-center gap-3">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-xl text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+                        aria-label={`${project.title} GitHub`}
+                      >
+                        <Github size={20} />
+                      </a>
+                    )}
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-xl text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10 transition-colors"
+                        aria-label={`${project.title} Live Demo`}
+                      >
+                        <ExternalLink size={20} />
+                      </a>
+                    )}
+                  </div>
                 </div>
 
-                <div className="flex gap-4">
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Github
-                        size={20}
-                        className="text-gray-500 hover:text-white transition"
-                      />
-                    </a>
-                  )}
-                  {project.live && (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ExternalLink
-                        size={20}
-                        className="text-gray-500 hover:text-white transition"
-                      />
-                    </a>
-                  )}
-                </div>
+                {/* Title & Subtitle */}
+                <h3 className="text-2xl font-bold text-white group-hover:text-purple-300 transition-colors mb-1">
+                  {project.title}
+                </h3>
+                <p className="text-xs font-mono font-medium text-cyan-400 mb-4">
+                  {project.subtitle}
+                </p>
+
+                {/* Description */}
+                <p className="text-gray-300 text-sm leading-relaxed mb-6 font-normal">
+                  {project.desc}
+                </p>
               </div>
 
-              {/* Content */}
-              <h4 className="text-2xl font-bold text-white mb-2">
-                {project.title}
-              </h4>
-              <p className="text-gray-400 text-sm mb-8 leading-relaxed flex-grow">
-                {project.desc}
-              </p>
-
-              {/* Tech */}
-              <div className="flex flex-wrap gap-2 mt-auto">
+              {/* Tech Tags */}
+              <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
                 {project.tech.map((t) => (
                   <span
                     key={t}
-                    className={`text-[10px] font-black uppercase tracking-widest 
-                    ${colors.tagText} ${colors.tagBg} px-2 py-1 rounded`}
+                    className="px-2.5 py-1 rounded-md bg-purple-500/10 border border-purple-500/20 text-purple-300 text-[11px] font-mono font-medium"
                   >
                     #{t}
                   </span>
                 ))}
               </div>
             </motion.div>
-          );
-        })}
+          ))}
+        </div>
+
       </div>
     </section>
   );

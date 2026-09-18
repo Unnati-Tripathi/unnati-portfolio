@@ -1,112 +1,131 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Award, Trophy, Star, ShieldCheck, ExternalLink } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Trophy, Award, Star, ShieldCheck, Target, ExternalLink } from "lucide-react";
 
-const achievements = [
+const achievementsList = [
   {
-    title: "Global Rank 808",
-    detail: "CodeChef Starters 115 (Division 4)",
-    icon: <Trophy className="text-yellow-500" />,
-    category: "Competitive Programming"
+    title: "Codeforces Specialist",
+    stat: "1450 Rating",
+    detail: "Ranked 847 / 7,800+ (Top 11% globally) in Round 1017 (Div. 4).",
+    icon: <Trophy className="text-purple-400" size={24} />,
+    category: "Competitive Programming",
+    link: "https://codeforces.com/profile/Unati",
   },
   {
-    title: "1622 Rating",
-    detail: "CodeChef Division 3 Professional",
-    icon: <Star className="text-blue-500" />,
-    category: "Competitive Programming"
+    title: "CodeChef 3-Star",
+    stat: "1622 Rating",
+    detail: "Global Rank 113 in Starters 188 Division 3 (Top 8.2% global ranking).",
+    icon: <Award className="text-cyan-400" size={24} />,
+    category: "Competitive Programming",
+    link: "https://www.codechef.com/users/utripathi_22",
   },
   {
-    title: "1450 Rating",
-    detail: "Codeforces Specialist Track",
-    icon: <Award className="text-purple-500" />,
-    category: "Competitive Programming"
+    title: "LeetCode 260+ Problems",
+    stat: "1614 Rating",
+    detail: "Top 21% globally in LeetCode contest rankings with 260+ problems solved.",
+    icon: <Star className="text-indigo-400" size={24} />,
+    category: "Data Structures & Algo",
+    link: null,
   },
   {
     title: "Google Girls Hackathon 2025",
-    detail: "Semifinalist Status",
-    icon: <ShieldCheck className="text-green-500" />,
-    category: "Hackathons"
-  }
-];
-
-const certifications = [
-  {
-    name: "Amazon ML Summer School 2024 Selected Attendee",
-    org: "Amazon Scientists",
-    date: "July 2024 - Aug 2024",
-    skills: ["Machine Learning", "Data Science"],
-    link: "https://drive.google.com/file/d/1I3WMuokQs49DLs9986v0iH0-4w310586/view?usp=sharing"
+    stat: "Semifinalist",
+    detail: "Recognized as a Semifinalist after rigorous technical and algorithmic challenges.",
+    icon: <ShieldCheck className="text-emerald-400" size={24} />,
+    category: "Hackathons",
+    link: null,
   },
   {
-    name: "Data Science Certification",
-    org: "Infosys Springboard",
-    skills: ["Python", "EDA", "Data Visualization"],
-    link: "https://drive.google.com/file/d/181a9NjikMeDkPohStIoXNzC337UPjLzY/view"
-  }
+    title: "TCS CodeVita 2025",
+    stat: "3 Rounds Cleared",
+    detail: "Successfully cleared 2 Online Coding Rounds and 1 Offline Regional Round.",
+    icon: <Target className="text-amber-400" size={24} />,
+    category: "Coding Competitions",
+    link: null,
+  },
+  {
+    title: "Kanpur District Chess",
+    stat: "1st Runner-up",
+    detail: "Secured 2nd rank in the Kanpur District Chess Championship (U-18 Girls).",
+    icon: <Trophy className="text-rose-400" size={24} />,
+    category: "Extracurricular & Strategy",
+    link: null,
+  },
 ];
 
 const Achievements = () => {
   return (
-    <section id="achievements" className="py-24 border-t border-gray-900">
-      <motion.h3 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        className="text-4xl font-black text-white mb-16 uppercase tracking-tighter"
-      >
-        Accolades_&_Certificates
-      </motion.h3>
+    <section id="achievements" className="py-20 md:py-28 relative">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        
+        {/* Section Header */}
+        <div className="flex flex-col items-center text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-widest mb-3">
+            <Trophy size={14} /> Milestones & Ranks
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            Key <span className="text-gradient">Achievements</span>
+          </h2>
+          <p className="text-gray-400 text-sm sm:text-base max-w-xl mt-3">
+            Competitive programming ratings, hackathon accomplishments, and tournament accolades.
+          </p>
+        </div>
 
-      {/* Competitive Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-        {achievements.map((item, idx) => (
-          <motion.div
-            key={item.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: idx * 0.1 }}
-            className="p-6 bg-[#0d1117] border border-gray-800 rounded-3xl hover:border-blue-500/50 transition-all group"
-          >
-            <div className="mb-4 p-3 bg-gray-900 w-fit rounded-2xl group-hover:scale-110 transition-transform">
-              {item.icon}
-            </div>
-            <p className="text-[10px] text-gray-500 uppercase font-bold mb-1">{item.category}</p>
-            <h4 className="text-white font-bold text-lg mb-1">{item.title}</h4>
-            <p className="text-gray-400 text-xs">{item.detail}</p>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Certifications List */}
-      <div className="space-y-4">
-        {certifications.map((cert, idx) => (
-          <motion.div
-            key={cert.name}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: idx * 0.2 }}
-            className="flex flex-col md:flex-row items-start md:items-center justify-between p-8 bg-[#0d1117] border border-gray-800 rounded-3xl hover:bg-blue-600/5 transition-all"
-          >
-            <div>
-              <h4 className="text-xl font-bold text-white mb-2">{cert.name}</h4>
-              <p className="text-blue-500 text-sm font-bold mb-4">{cert.org} • {cert.date || "Online"}</p>
-              <div className="flex flex-wrap gap-2">
-                {cert.skills.map(skill => (
-                  <span key={skill} className="px-3 py-1 bg-gray-900 text-gray-400 text-[10px] rounded-full uppercase font-bold tracking-wider">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <a 
-              href={cert.link} 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 md:mt-0 p-4 bg-gray-900 text-blue-500 rounded-full hover:bg-blue-600 hover:text-white transition-all shadow-xl"
+        {/* Grid of Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {achievementsList.map((item, index) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="glass-card glass-card-hover p-7 rounded-3xl flex flex-col justify-between group relative"
             >
-              <ExternalLink size={20} />
-            </a>
-          </motion.div>
-        ))}
+              <div>
+                {/* Header */}
+                <div className="flex items-center justify-between mb-5">
+                  <div className="p-3 rounded-2xl bg-white/[0.04] border border-white/10 group-hover:scale-110 transition-transform">
+                    {item.icon}
+                  </div>
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-purple-400 px-2.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/20">
+                    {item.category}
+                  </span>
+                </div>
+
+                <div className="flex items-baseline justify-between mb-1">
+                  <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
+                    {item.title}
+                  </h3>
+                </div>
+
+                <div className="text-sm font-mono font-bold text-cyan-400 mb-3">
+                  {item.stat}
+                </div>
+
+                <p className="text-gray-300 text-xs sm:text-sm leading-relaxed font-normal">
+                  {item.detail}
+                </p>
+              </div>
+
+              {/* Optional Link */}
+              {item.link && (
+                <div className="mt-5 pt-4 border-t border-white/5 flex justify-end">
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-purple-400 hover:text-purple-300 transition-colors"
+                  >
+                    <span>View Profile</span>
+                    <ExternalLink size={12} />
+                  </a>
+                </div>
+              )}
+            </motion.div>
+          ))}
+        </div>
+
       </div>
     </section>
   );
