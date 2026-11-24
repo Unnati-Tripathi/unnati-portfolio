@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Github, ExternalLink, Code2, ShoppingBag, Terminal, CheckSquare, Building2, Utensils } from "lucide-react";
+import { Github, ExternalLink, Code2, ShoppingBag, Terminal, CheckSquare, Utensils, HeartPulse, PackageCheck, GraduationCap } from "lucide-react";
 
 const projectList = [
   {
@@ -9,8 +9,8 @@ const projectList = [
     desc: "Full-stack MERN e-commerce application featuring JWT-based Role-Based Access Control (RBAC), full inventory CRUD Admin Dashboard, and a real-time shopping cart with dynamic discount code validation.",
     tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "JWT RBAC"],
     icon: <ShoppingBag className="text-purple-400" size={24} />,
-    github: "https://github.com/Unnati-Tripathi",
-    live: null,
+    github: "https://github.com/Unnati-Tripathi/InstantMarT",
+    live: "https://instantmart-frontend.onrender.com",
     featured: true,
   },
   {
@@ -20,8 +20,39 @@ const projectList = [
     tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Monaco Editor", "JWT"],
     icon: <Terminal className="text-cyan-400" size={24} />,
     github: "https://github.com/Unnati-Tripathi",
+    live: "https://codify-letscodeit.onrender.com",
+    featured: true,
+  },
+  {
+    title: "StockWise",
+    subtitle: "Pharmacy Inventory & Replenishment Platform",
+    desc: "Full-stack pharmacy inventory management platform built with FastAPI and PostgreSQL, implementing REST APIs for medicine, supplier, batch, and stock movement management. Features a rule-based replenishment engine for expiry risk & reorder alerts, validated invoice-processing workflows, a React dashboard, Docker setup, and automated tests.",
+    tech: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Alembic", "React.js", "Docker"],
+    icon: <PackageCheck className="text-indigo-400" size={24} />,
+    github: "https://github.com/Unnati-Tripathi/StockWise",
     live: null,
     featured: true,
+  },
+  {
+    title: "AceDreams",
+    subtitle: "DSA Learning & Practice Platform (Client Project)",
+    desc: "Full-stack MERN web application developed for a client to help students master Data Structures & Algorithms, offering curated DSA resources, practice problems, and dynamic difficulty-wise and topic-wise filtering backed by a custom backend and database.",
+    tech: ["React.js", "Node.js", "Express.js", "MongoDB", "REST API"],
+    icon: <GraduationCap className="text-pink-400" size={24} />,
+    github: null,
+    live: "https://ace-dreams.vercel.app/",
+    featured: true,
+  },
+  {
+    title: "Heart Disease Prediction System",
+    subtitle: "ML Classification & EDA Pipeline",
+    desc: "End-to-end machine learning project in Jupyter Notebook performing Exploratory Data Analysis (EDA), feature encoding, StandardScaler normalization, and stratified 80/20 evaluation on patient medical records. Achieved ~90% accuracy with Random Forest Classifier, outperforming Logistic Regression (~87%) and RFE.",
+    tech: ["Python", "Jupyter Notebook", "Pandas", "Seaborn", "Scikit-learn", "Random Forest"],
+    icon: <HeartPulse className="text-rose-400" size={24} />,
+    github: "https://github.com/Unnati-Tripathi/HeartDesease_Prediction",
+    live: "https://github.com/Unnati-Tripathi/HeartDesease_Prediction/blob/main/ProjectHeart.ipynb",
+    liveLabel: "Jupyter Notebook",
+    featured: false,
   },
   {
     title: "TaskFlow",
@@ -33,16 +64,7 @@ const projectList = [
     live: null,
     featured: false,
   },
-  {
-    title: "College Management System",
-    subtitle: "FastAPI Backend Architecture",
-    desc: "High-performance backend API built with Python & FastAPI featuring modular routers, PyDantic schemas, JWT authentication, paginated database queries, and custom exception handling middlewares.",
-    tech: ["Python", "FastAPI", "PostgreSQL", "PyDantic", "JWT Auth", "Middlewares"],
-    icon: <Building2 className="text-indigo-400" size={24} />,
-    github: "https://github.com/Unnati-Tripathi",
-    live: null,
-    featured: false,
-  },
+  
   {
     title: "PantryChef",
     subtitle: "Smart Recipe Recommendation App",
@@ -100,6 +122,7 @@ const Projects = () => {
                         rel="noopener noreferrer"
                         className="p-2 rounded-xl text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
                         aria-label={`${project.title} GitHub`}
+                        title="View on GitHub"
                       >
                         <Github size={20} />
                       </a>
@@ -110,7 +133,8 @@ const Projects = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 rounded-xl text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10 transition-colors"
-                        aria-label={`${project.title} Live Demo`}
+                        aria-label={`${project.title} ${project.liveLabel || "Live Demo"}`}
+                        title={project.liveLabel || "Live Demo"}
                       >
                         <ExternalLink size={20} />
                       </a>
